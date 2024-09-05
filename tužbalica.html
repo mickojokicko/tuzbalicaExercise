@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tužbalica</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="tužbalica.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tektur:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="containerShowUp">
+      <article class="loginArticle">
+        <input
+          id="loginUsername"
+          type="text"
+          placeholder="Username"
+          autocomplete="off"
+        />
+        <input
+          id="loginPassword"
+          type="password"
+          placeholder="Password"
+          autocomplete="off"
+        />
+        <button id="loginSubmit">Login</button>
+        <p id="loginErrorMessage"></p>
+      </article>
+      <article class="welcomePage">
+        <h1>Welcome to Tužbalica</h1>
+        <p>
+          If you are not registered yet, you can do so by clicking on
+          <a href="#" id="registerNowLink">Register Now!</a>
+        </p>
+      </article>
+      <article class="registerNow">
+        <div class="registerNowContainer">
+          <h3 id="signUp">Sign Up <span id="signUpSpan">for free</span></h3>
+
+          <input
+            type="text"
+            placeholder="Username"
+            id="registerName"
+            class="registerField"
+            autocomplete="off"
+          /><br />
+          <input
+            type="text"
+            placeholder="Email"
+            id="registerEmail"
+            class="registerField"
+            autocomplete="off"
+          /><br />
+          <input
+            type="password"
+            placeholder="Password"
+            id="registerPassword"
+            class="registerField"
+          />
+          <br />
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            id="registerPasswordConfirm"
+            class="registerField"
+          />
+          <br />
+          <button id="subbmitRegistration" class="registerField">
+            Sign UP
+          </button>
+
+          <p id="registrationMessage">
+            <!-- You have successfully registered, Congratulations!!! -->
+          </p>
+          <span>Go to</span>
+          <a href="#" id="backToLogin">Login page</a>
+        </div>
+      </article>
+    </div>
+    <div class="containerHidden">
+      <div id="modal">
+        <div class="rowReview">
+          <article class="exitBtn">
+            <i class="fa-solid fa-xmark fa-fade fa-2xl"></i>
+          </article>
+
+          <article class="usersData">
+            <h2 id="naslovRowReview">Informacije o korisniku</h2>
+            <div class="dataUser">
+              <div>
+                <span id="dataStyle">First name:</span> <span id="name"></span>
+              </div>
+            </div>
+            <div class="dataUser">
+              <div>
+                <span id="dataStyle">Last Name: </span>
+                <span id="lastName"></span>
+              </div>
+            </div>
+            <div class="dataUser">
+              <div>
+                <span id="dataStyle">Email: </span> <span id="email"></span>
+              </div>
+            </div>
+            <div class="dataUser">
+              <div>
+                <span id="dataStyle">Phone: </span> <span id="phone"></span>
+              </div>
+            </div>
+            <div class="dataUser">
+              <div>
+                <span id="dataStyle">Complaint text: </span>
+                <span id="textComplaint"></span>
+              </div>
+              <div class="dataUser">
+                <div>
+                  <span id="dataStyle">Date: </span>
+                  <span id="dateComplaint"></span>
+                </div>
+              </div>
+              <div class="dataUser">
+                <div>
+                  <span id="dataStyle">User's Id: </span>
+                  <span class="hidden" id="usersId"></span>
+                </div>
+              </div>
+            </div>
+            <div class="btn__dataUser">
+              <button class="btn showId">Show Id</button>
+              <button class="btn deleteUser">Delete User</button>
+            </div>
+            <div class="controlId hidden dataUser">
+              <span>Administrator:</span>
+              <input
+                id="passwordUsers"
+                type="password"
+                placeholder="Password"
+              />
+              <button id="passwordUsersSubmit">Show ID</button>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="container">
+        <section class="section1">
+          <div class="header">
+            <img id="slika" src="tužbalica.jpg" alt="tužbalica slika" />
+            <div class="header__text">
+              <h1>Tužbalica građana</h1>
+              <p class="paragraf">
+                U slučaju da imate bilo kakve pritužbe ili sugestije koje su
+                vezane za Vaš grad / mjesto u kome živite, ovdje to možete
+                prijaviti potpuno anonimno!!!
+              </p>
+            </div>
+          </div>
+          <div class="input__container">
+            <input
+              class="input input__name"
+              type="text"
+              placeholder="   Unesite Vaše ime"
+            />
+            <input
+              class="input input__lastName"
+              type="text"
+              placeholder="   Unesite Vaše prezime"
+            />
+            <input
+              class="input input__mail"
+              type="text"
+              placeholder="   Unesite Vaš e-mail"
+              onkeydown="inputValidation()"
+            />
+            <span id="errorMessage"></span>
+            <input
+              class="input input__number"
+              type="number"
+              placeholder="   Unesite Vaš broj telefona"
+            />
+            <textarea
+              class="input input__coment"
+              name="text"
+              placeholder="  Ovdje možete ispisati vaše pritužbe ili sugestije"
+            ></textarea>
+          </div>
+          <div class="btn__container">
+            <button class="btn pošalji">Pošalji</button>
+            <button class="btn prikaži">Prikaži</button>
+          </div>
+        </section>
+        <section class="section2">
+          <h2>Lista korisnika naše aplikacije</h2>
+
+          <hr />
+          <div class="prikaz">
+            <!-- <div class="row clickable" id="clickableRow">
+            <div class="row__item"><span id="item"> 🧑: Mile Jokić </span></div>
+            <div class="row__item"><span id="item">📩: e-mail</span></div>
+            <div class="row__item"><span id="item">📞: 123456789</span></div>
+          </div> -->
+          </div>
+
+          <a id="logOut" href="tužbalica.html">Log out</a>
+        </section>
+      </div>
+      <script src="script.js"></script>
+    </div>
+  </body>
+</html>
